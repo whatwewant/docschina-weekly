@@ -97,9 +97,6 @@ jobs:
       #         path: ~/.npm
       #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Before Build
-        run: cp tsconfig.prod.json tsconfig.json
-
       - name: Make Build
         run: yarn build
 

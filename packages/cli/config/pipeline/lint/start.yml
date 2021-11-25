@@ -1,0 +1,23 @@
+name: Lint
+
+jobs:
+  lint:
+    steps:
+      - name: 拉取远程更新
+        commands:
+          - git checkout ${PIPELINE_BRANCH_MASTER}
+          - git fetch origin
+      - name: 切换到 Lint 分支
+        commands: |
+          git rev-parse --verify ${PIPELINE_BRANCH_CURRENT}
+          if [ "$?" != "0" ]; then
+            git checkout ${PIPELINE_BRANCH_CURRENT}
+          else
+            git checkout -b ${PIPELINE_BRANCH_CURRENT} origin/${PIPELINE_BRANCH_MASTER}
+          fi
+      - name: 更新最新分支数据
+        commands:
+          - echo ${PIPELINE_PERIOD} > .LATEST
+      - name: ✅ 请开始你的 Lint
+        commands:
+          - echo "✅ 请开始你的 Lint"

@@ -1,0 +1,90 @@
+{
+  "name": "@docschinajs/cli",
+  "version": "0.0.0",
+  "description": "Docschina Weekly Translation CLI",
+  "keywords": [
+    "cliz",
+    "translate",
+    "weekly"
+  ],
+  "author": "zero <tobewhatwewant@gmail.com>",
+  "homepage": "https://github.com/koexjs/koex#readme",
+  "license": "MIT",
+  "main": "lib/cli.js",
+  "typings": "lib/cli.d.ts",
+  "bin": {
+    "translate-weekly": "lib/cli.js",
+    "docschina-weekly": "lib/cli.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "config": "config"
+  },
+  "files": [
+    "lib",
+    "config"
+  ],
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".*\\.(spec|test)\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    },
+    "preset": "ts-jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koexjs/koex.git"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "watch": "npm run clean && tsc -p tsconfig.build.json -w",
+    "clean": "rm -rf lib",
+    "test": "jest -w 1",
+    "coverage": "codecov",
+    "pkg": "rm -rf pkg && yarn build && koex pkg",
+    "server": "NODE_ENV=development tsc-watch -p tsconfig.json --onSuccess \"node lib/cli.js server -t token -d inlets.example.com\"",
+    "client": "NODE_ENV=development tsc-watch -p tsconfig.json --onSuccess \"node lib/cli.js client -t token http 127.0.0.1:9000 -s id\"",
+    "client:http": "NODE_ENV=development tsc-watch -p tsconfig.json --onSuccess \"node lib/cli.js client -t token http 127.0.0.1:9000 -s id\"",
+    "client:tcp": "NODE_ENV=development tsc-watch -p tsconfig.json --onSuccess \"node lib/cli.js client -t token tcp 127.0.0.1:22\"",
+    "cli": "node lib/cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/koexjs/koex/issues"
+  },
+  "dependencies": {
+    "@cliz/cli": "^0.1.23",
+    "@znode/real-url": "^0.1.4",
+    "prettier": "^2.4.1",
+    "remark": "13.0.0",
+    "unist-util-visit": "2.0.3"
+  }
+}
