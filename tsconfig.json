@@ -1,0 +1,13 @@
+{
+  "extends": "@zcorky/tsconfig",
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+  },
+  "exclude": [
+    "node_modules",
+    "__tests__",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+}

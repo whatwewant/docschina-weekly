@@ -1,0 +1,12 @@
+node_modules/
+lerna-debug.log
+npm-debug.log
+packages/*/lib
+.idea
+*.lock
+package-lock.json
+coverage/
+.npmrc
+yarn-error.log
+!yarn.lock
+examples/*/lib

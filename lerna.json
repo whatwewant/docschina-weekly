@@ -1,0 +1,34 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "registry": "https://registry.npmjs.org/",
+      "ignoreChanges": [
+        ".npmrc",
+        "yarn.lock",
+        "**/*.md"
+      ],
+      "allowBranch": [
+        "master"
+      ],
+      "commitHooks": false,
+      "message": "chore(release): publish",
+      "conventionalCommits": true
+    }
+  },
+  "changelog": {
+    "repo": "zcorky/zodash",
+    "labels": {
+      "enchancement": ":rocket:(Enhancement)",
+      "bug": ":bug:(Bug Fix)",
+      "doc": ":doc:(Refine Doc)",
+      "feat": ":sparkles:(Feature)"
+    },
+    "cacheDir": ".changelog"
+  }
+}
