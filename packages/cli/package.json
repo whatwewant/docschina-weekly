@@ -1,6 +1,6 @@
 {
   "name": "@docschinajs/cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Docschina Weekly Translation CLI",
   "keywords": [
     "cliz",
